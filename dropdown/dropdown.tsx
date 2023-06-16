@@ -1,4 +1,4 @@
-import { Children, ClassName } from '@/utils/types'
+import { Children, ClassName } from '@sub/types'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import { FC, Fragment, ReactNode } from 'react'
@@ -21,6 +21,8 @@ export const DropdownTrigger: FC<DropdownTriggerProps> = ({ children }) => {
     </Menu.Button>
   )
 }
+
+
 
 export const DropdownBody: FC<Children> = ({ children }) => {
   return (

@@ -1,0 +1,8 @@
+.dropdown-body {
+  @apply absolute mt-2;
+  @apply origin-bottom-right;
+  @apply divide-gray-100 rounded-md bg-white shadow-lg focus:outline-none;
+  @apply z-10;
+  @apply top-10 left-0;
+  @apply w-full;
+}

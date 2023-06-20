@@ -1,9 +1,5 @@
 import { ClassName } from '@sub/types'
-import {
-  ControllerRenderProps,
-  FieldValues,
-  useFormContext,
-} from 'react-hook-form'
+import { ControllerRenderProps, FieldValues, useFormContext } from 'react-hook-form'
 import { FC } from 'react'
 import { ErrorMessage } from './error-message'
 import { Label } from './label'
@@ -25,23 +21,13 @@ type Props = ControlledInputProps & {
 
 /** ### Styled UNCONTROLLED Input
  * #### Will display '$' for type="Currency" */
-export const SolarInput: FC<Props> = (props): JSX.Element => {
-  const {
-    isDisabled = false,
-    className = '',
-    name,
-    placeholder = '',
-    id,
-    field,
-  } = props
-
+export const Input: FC<Props> = (props): JSX.Element => {
   const formContext = useFormContext()
-
+  const { isDisabled = false, className = '', name, placeholder = '', id, field } = props
   const { formState } = formContext ?? {}
   const { errors } = formState ?? {}
   const disabled = isDisabled ? 'disabled' : ''
   const error = errors[name] ? 'error' : ''
-
   const componentId = id ?? name
 
   return (

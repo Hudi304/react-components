@@ -14,3 +14,8 @@ export interface Controlled {
 export enum UnitOfMeasure {
   kwh = 'kwh',
 }
+
+export enum Position {
+  LEFT,
+  RIGHT,
+}

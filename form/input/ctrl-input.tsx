@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useFormContext, Controller } from 'react-hook-form'
-import { ControlledInputProps, SolarInput } from './input'
+import { ControlledInputProps, Input } from './input'
 
 export const ControlledInput: FC<ControlledInputProps> = (
   props,
@@ -12,7 +12,7 @@ export const ControlledInput: FC<ControlledInputProps> = (
       control={formContext.control}
       name={name}
       rules={{ required: isRequired }}
-      render={({ field }) => <SolarInput {...props} field={field} />}
+      render={({ field }) => <Input {...props} field={field} />}
     />
   )
 }

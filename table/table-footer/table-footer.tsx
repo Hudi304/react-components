@@ -1,7 +1,7 @@
 import './table-footer.scss'
 import { useState } from 'react'
-import { TableState, TableStore } from '../table/table'
 import { TablePagination } from './table-pagination'
+import { TableState, TableStore } from '../table'
 
 export const Options: any[] = [
   { value: 10, label: '10' },

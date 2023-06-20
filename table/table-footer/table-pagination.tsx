@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { TableStore } from '../table/table'
 import { PageButtons } from './footer-buttons/footer-buttons'
+import { TableStore } from '../table'
 
 type TablePaginationProps<M, F> = {
   store: TableStore<M, F>

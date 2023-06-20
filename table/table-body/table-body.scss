@@ -1,0 +1,22 @@
+.table-body-container {
+  @apply overflow-hidden h-full;
+
+  .table-row {
+    @apply border-b;
+
+    .table-cell {
+      @apply overflow-hidden flex items-center content-center;
+    }
+
+    .tooltip {
+      @apply invisible absolute;
+      opacity: 0.9;
+    }
+
+    .has-tooltip:hover .tooltip {
+      @apply max-w-[900px] mt-3 visible z-50 flex flex-col rounded-md bg-ui_stroke border
+      border-ui_stroke_2 shadow-2xl  
+      pointer-events-none text-caption-l-bold;
+    }
+  }
+}

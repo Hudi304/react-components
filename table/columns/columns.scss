@@ -1,0 +1,32 @@
+.table-cell {
+  .block-number-column {
+    @apply text-caption-l-bold;
+  }
+
+  .hash-column {
+    @apply text-caption-l-bold;
+    @apply text-green_accent cursor-pointer overflow-hidden;
+
+    &:hover {
+      @apply text-green-500;
+    }
+
+    &-no-hover {
+      @apply text-caption-l-bold cursor-default text-green_accent;
+    }
+  }
+
+  .json-previewer {
+    @apply text-button-small hover:bg-slate-300 hover:text-gray-600;
+    @apply bg-ui_stroke border border-ui_stroke_2 py-2 px-2 rounded-full cursor-pointer;
+  }
+
+  .timestamp {
+    @apply overflow-hidden  text-ellipsis text-caption-l-bold;
+  }
+
+  .text-column {
+    @apply text-hairline-s text-ellipsis;
+    @apply overflow-hidden;
+  }
+}

@@ -1,0 +1,18 @@
+.table-footer {
+  text-align: left;
+  font-size: 16px;
+  @apply w-full font-medium rounded-b-[15px] pt-5;
+  @apply grid grid-cols-1 grid-rows-1;
+
+  .buttons {
+    @apply text-caption-l-bold;
+    @apply text-green_accent border-none cursor-pointer;
+    
+    .page-button{
+      @apply w-full px-1;
+    }
+  
+  }
+
+
+}

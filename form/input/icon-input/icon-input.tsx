@@ -15,8 +15,9 @@ type IconInputProps = {
   FormItem
 
 export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
-  const [state, setState] = useState<Position | undefined>()
   const { icon, position, value, name, label, className = '' } = props
+
+  const [isFocused, setIsFocused] = useState(false)
 
   const ref = useRef<HTMLInputElement | null>(null)
 
@@ -32,17 +33,27 @@ export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
     ref.current.focus()
   }
 
+  function onInputFocus() {
+    setIsFocused(true)
+  }
+
+  function onInputBlur() {
+    setIsFocused(false)
+  }
+
+  const focus = isFocused ? 'border-2' : ''
+
   return (
-    <div className={`icon-input-container ${className}`} onClick={onInputClick}>
+    <div className={`icon-input-container ${focus} ${className}`} onClick={onInputClick}>
       {position == Position.LEFT && <Icon className='icon' icon={icon} size={6} />}
 
       {label ? (
         <div className='input-container '>
           <div className='label'>{label}</div>
-          <input ref={ref} value={value} className='input' />
+          <input ref={ref} value={value} className='input' onFocus={onInputFocus} onBlur={onInputBlur} />
         </div>
       ) : (
-        <input ref={ref} value={value} className='unlabeled-input' />
+        <input ref={ref} value={value} className='unlabeled-input' onFocus={onInputFocus} onBlur={onInputBlur} />
       )}
 
       {position == Position.RIGHT && <Icon className='icon ml-auto' icon={icon} size={6} />}

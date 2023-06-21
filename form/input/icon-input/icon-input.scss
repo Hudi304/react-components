@@ -1,0 +1,23 @@
+.input-container {
+  @apply h-[41p] flex flex-col;
+
+  .label {
+    @apply font-normal text-sm;
+    @apply p-0 m-0;
+    @apply h-[18px];
+    line-height: 18px;
+  }
+
+  .input {
+    @apply w-full text-xl font-medium  h-[25px];
+    @apply p-0 m-0;
+    line-height: 25px;
+    font-family: 'Wix Madefor Display', sans-serif;
+  }
+
+  .unlabeled-input {
+    @apply w-full text-sm font-normal  h-[25px];
+    @apply p-0 m-0;
+    line-height: 18px;
+  }
+}

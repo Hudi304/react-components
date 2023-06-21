@@ -1,14 +1,13 @@
 import { ClassName } from '@sub/types'
-import { FC, useState } from 'react'
+import { FC, ReactNode, useRef, useState } from 'react'
 import { FormItem, Position } from '../../types'
 import { Icon } from '@cmp/icon/icon'
-import { ICONS } from '@cmp/icon/icons-constant'
 
 import './icon-input.scss'
 
 type IconInputProps = {
   position?: Position
-  icon?: any
+  icon?: React.ForwardRefExoticComponent<Pick<React.SVGProps<SVGSVGElement>, any>>
   value?: string
   name?: string
   label?: string
@@ -19,25 +18,34 @@ export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
   const [state, setState] = useState<Position | undefined>()
   const { icon, position, value, name, label, className = '' } = props
 
-  return (
-    <div className={`icon-input-container ${className}`}>
-      {position == Position.LEFT && <Icon className='icon' icon={ICONS.MAGNIFYING_GLASS} size={6} />}
-      <Input {...props} />
+  const ref = useRef<HTMLInputElement | null>(null)
 
-      {position == Position.RIGHT && <Icon className='icon ml-auto' icon={ICONS.MAGNIFYING_GLASS} size={6} />}
-    </div>
-  )
-}
+  function onInputClick() {
+    if (ref == null) {
+      return
+    }
 
-const Input: FC<IconInputProps> = ({ label, value }) => {
-  if (label) {
-    return (
-      <div className='input-container '>
-        <div className='label'>{label}</div>
-        <input value={value} className='input ' />
-      </div>
-    )
+    if (ref.current == null) {
+      return
+    }
+
+    ref.current.focus()
   }
 
-  return <input value={value} className='unlabeled-input' />
+  return (
+    <div className={`icon-input-container ${className}`} onClick={onInputClick}>
+      {position == Position.LEFT && <Icon className='icon' icon={icon} size={6} />}
+
+      {label ? (
+        <div className='input-container '>
+          <div className='label'>{label}</div>
+          <input ref={ref} value={value} className='input' />
+        </div>
+      ) : (
+        <input ref={ref} value={value} className='unlabeled-input' />
+      )}
+
+      {position == Position.RIGHT && <Icon className='icon ml-auto' icon={icon} size={6} />}
+    </div>
+  )
 }

@@ -17,15 +17,14 @@ type IconInputProps = {
 
 export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
   const [state, setState] = useState<Position | undefined>()
-
-  const { icon, position, value, name, label } = props
+  const { icon, position, value, name, label, className = '' } = props
 
   return (
-    <div className='debug flex items-center p-2 gap-2 h-[60px] rounded-md'>
-      {position == Position.LEFT && <Icon className='text-golden-rod' icon={ICONS.MAGNIFYING_GLASS} size={6} />}
+    <div className={`icon-input-container ${className}`}>
+      {position == Position.LEFT && <Icon className='icon' icon={ICONS.MAGNIFYING_GLASS} size={6} />}
       <Input {...props} />
 
-      {position == Position.RIGHT && <Icon className='text-golden-rod' icon={ICONS.MAGNIFYING_GLASS} size={6} />}
+      {position == Position.RIGHT && <Icon className='icon ml-auto' icon={ICONS.MAGNIFYING_GLASS} size={6} />}
     </div>
   )
 }
@@ -34,11 +33,11 @@ const Input: FC<IconInputProps> = ({ label, value }) => {
   if (label) {
     return (
       <div className='input-container '>
-        <div className='label '>{label}</div>
+        <div className='label'>{label}</div>
         <input value={value} className='input ' />
       </div>
     )
   }
 
-  return <input value={value} className='input ' />
+  return <input value={value} className='unlabeled-input' />
 }

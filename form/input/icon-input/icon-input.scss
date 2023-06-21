@@ -1,23 +1,40 @@
-.input-container {
-  @apply h-[41p] flex flex-col;
+.icon-input-container {
+  @apply border flex items-center h-[60px] rounded-md;
+  @apply px-3 gap-2;
 
-  .label {
-    @apply font-normal text-sm;
-    @apply p-0 m-0;
-    @apply h-[18px];
-    line-height: 18px;
-  }
+  .input-container {
+    @apply h-[41p] flex flex-col;
 
-  .input {
-    @apply w-full text-xl font-medium  h-[25px];
-    @apply p-0 m-0;
-    line-height: 25px;
-    font-family: 'Wix Madefor Display', sans-serif;
+    .label {
+      @apply text-field-sm;
+    }
+
+    .input {
+      @apply w-full text-field-lg;
+    }
+
+    input:focus {
+      outline: none;
+    }
   }
 
   .unlabeled-input {
-    @apply w-full text-sm font-normal  h-[25px];
-    @apply p-0 m-0;
-    line-height: 18px;
+    @apply text-field-sm;
+  }
+
+  .unlabeled-input:focus {
+    outline: none;
+  }
+  
+  .icon {
+    @apply text-golden-rod;
+  }
+
+  &.error {
+    @apply border-alert-dark text-alert-dark;
+
+    .icon {
+      @apply text-alert-dark;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { ControlledInputProps } from './input'
+import { ControlledInputProps } from './input/input'
 
 export const Label = ({
   id,

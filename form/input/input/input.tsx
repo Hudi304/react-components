@@ -1,27 +1,14 @@
-import { ClassName } from '@sub/types'
-import { ControllerRenderProps, FieldValues, useFormContext } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 import { FC } from 'react'
-import { ErrorMessage } from './error-message'
-import { Label } from './label'
-import { FormItem } from '../types'
+import { ErrorMessage } from '../error-message'
+import { Label } from '../label'
 
-import './input.scss'
-
-export type ControlledInputProps = {
-  isRequired?: boolean
-  isDisabled?: boolean
-  placeholder?: string
-  label?: string
-} & ClassName &
-  FormItem
-
-type Props = ControlledInputProps & {
-  field: ControllerRenderProps<FieldValues, string>
-}
+import '../input.scss'
+import { SimpleInputProps } from '../types'
 
 /** ### Styled UNCONTROLLED Input
  * #### Will display '$' for type="Currency" */
-export const Input: FC<Props> = (props): JSX.Element => {
+export const Input: FC<SimpleInputProps> = (props): JSX.Element => {
   const formContext = useFormContext()
   const { isDisabled = false, className = '', name, placeholder = '', id, field } = props
   const { formState } = formContext ?? {}

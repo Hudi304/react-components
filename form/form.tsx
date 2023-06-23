@@ -2,7 +2,8 @@ import { FC } from 'react'
 import { FormProvider, UseFormReturn } from 'react-hook-form'
 
 import { ClassName } from '@sub/types'
-import { ControlledInput } from './input/ctrl-input'
+import { ControlledInput } from './input/input/ctrl-input'
+import { CtrlIconInput } from './input/icon-input/ctrl-icon-input'
 
 type FormProps = {
   children: any
@@ -10,12 +11,7 @@ type FormProps = {
   methods: UseFormReturn<any, any> // the second generic type is not exported by the lib
 } & ClassName
 
-const Form: FC<FormProps> = ({
-  children,
-  methods,
-  className = '',
-  onSubmit,
-}): JSX.Element => (
+const FormCmp: FC<FormProps> = ({ children, methods, className = '', onSubmit }): JSX.Element => (
   <FormProvider {...methods}>
     <form className={`${className}`} onSubmit={onSubmit}>
       {children}
@@ -23,8 +19,10 @@ const Form: FC<FormProps> = ({
   </FormProvider>
 )
 
-export default Object.assign(Form, {
+export const Form = Object.assign(FormCmp, {
   Input: ControlledInput,
+  IconInput: CtrlIconInput,
+
   // Select: ControlledSelect,
   // Checkbox: ControlledCheckbox,
   // LockInput: ControlledLockInput,

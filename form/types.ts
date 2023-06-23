@@ -7,6 +7,8 @@ export interface FormItem {
 
 export interface Controlled {
   field: ControllerRenderProps<FieldValues, string>
+  // name: string
+  // id?: string
 }
 
 /**

@@ -1,19 +1,11 @@
-import { ClassName } from '@sub/types'
-import { FC, ReactNode, useRef, useState } from 'react'
-import { FormItem, Position } from '../../types'
+import { FC, useRef, useState } from 'react'
+import { Position } from '../../types'
 import { Icon } from '@cmp/icon/icon'
 
 import './icon-input.scss'
+import { IconInputProps } from '../types'
 
-type IconInputProps = {
-  position?: Position
-  icon?: React.ForwardRefExoticComponent<Pick<React.SVGProps<SVGSVGElement>, any>>
-  value?: string
-  name?: string
-  label?: string
-} & ClassName &
-  FormItem
-
+/** ### Styled UNCONTROLLED IconInput */
 export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
   const { icon, position, value, name, label, className = '' } = props
 
@@ -50,10 +42,24 @@ export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
       {label ? (
         <div className='input-container '>
           <div className='label'>{label}</div>
-          <input ref={ref} value={value} className='input' onFocus={onInputFocus} onBlur={onInputBlur} />
+          <input
+            ref={ref}
+            value={value}
+            className='input'
+            onFocus={onInputFocus}
+            onBlur={onInputBlur}
+            readOnly={props.readonly}
+          />
         </div>
       ) : (
-        <input ref={ref} value={value} className='unlabeled-input' onFocus={onInputFocus} onBlur={onInputBlur} />
+        <input
+          ref={ref}
+          value={value}
+          className='unlabeled-input'
+          onFocus={onInputFocus}
+          onBlur={onInputBlur}
+          readOnly={props.readonly}
+        />
       )}
 
       {position == Position.RIGHT && <Icon className='icon ml-auto' icon={icon} size={6} />}

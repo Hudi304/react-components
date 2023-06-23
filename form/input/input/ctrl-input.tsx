@@ -1,10 +1,9 @@
 import { FC } from 'react'
 import { useFormContext, Controller } from 'react-hook-form'
-import { ControlledInputProps, Input } from './input'
+import { Input } from './input'
+import { ControlledInputProps } from '../types'
 
-export const ControlledInput: FC<ControlledInputProps> = (
-  props,
-): JSX.Element => {
+export const ControlledInput: FC<ControlledInputProps> = (props): JSX.Element => {
   const formContext = useFormContext()
   const { name, isRequired } = props
   return (

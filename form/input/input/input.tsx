@@ -1,34 +1,29 @@
-import { useFormContext } from 'react-hook-form'
 import { FC } from 'react'
-import { ErrorMessage } from '../error-message'
 import { Label } from '../label'
 
-import '../input.scss'
-import { SimpleInputProps } from '../types'
+import { InputProps, UnCtrl } from '../types'
+
+import './input.scss'
+
+type Props = InputProps & UnCtrl
 
 /** ### Styled UNCONTROLLED Input
  * #### Will display '$' for type="Currency" */
-export const Input: FC<SimpleInputProps> = (props): JSX.Element => {
-  const formContext = useFormContext()
-  const { isDisabled = false, className = '', name, placeholder = '', id, field } = props
-  const { formState } = formContext ?? {}
-  const { errors } = formState ?? {}
+export const Input: FC<Props> = (props): JSX.Element => {
+  const { isDisabled = false, className = '', placeholder = '' } = props
   const disabled = isDisabled ? 'disabled' : ''
-  const error = errors[name] ? 'error' : ''
-  const componentId = id ?? name
+  const height = props.label ? 'h-14' : 'h-10'
 
   return (
-    <div className='flex flex-col h-[62px]'>
-      <Label {...props} />
+    <div className={`flex flex-col w-full ${height}`}>
+      {props.label && <Label {...props} />}
+      {/* prettier-ignore */}
       <input
-        className={`base-input ${className} ${disabled} ${error}`}
-        title={field.value}
+        {...props}
+        className={`base-input ${className} ${disabled}`}
         placeholder={placeholder}
         disabled={isDisabled}
-        {...field}
-        id={componentId}
       />
-      <ErrorMessage name={name} />
     </div>
   )
 }

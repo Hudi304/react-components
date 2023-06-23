@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { FormProvider, UseFormReturn } from 'react-hook-form'
 
 import { ClassName } from '@sub/types'
-import { ControlledInput } from './input/input/ctrl-input'
+import { CtrlInput } from './input/input/ctrl-input'
 import { CtrlIconInput } from './input/icon-input/ctrl-icon-input'
 
 type FormProps = {
@@ -20,7 +20,7 @@ const FormCmp: FC<FormProps> = ({ children, methods, className = '', onSubmit })
 )
 
 export const Form = Object.assign(FormCmp, {
-  Input: ControlledInput,
+  Input: CtrlInput,
   IconInput: CtrlIconInput,
 
   // Select: ControlledSelect,

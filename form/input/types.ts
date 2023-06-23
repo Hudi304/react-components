@@ -1,18 +1,22 @@
 import { Position } from './../types'
 import { ClassName } from '@sub/types'
-import { Controlled, FormItem } from '../types'
-import { ControllerRenderProps, FieldValues } from 'react-hook-form'
+import { FormItem } from '../types'
 
 type IconCmp = React.ForwardRefExoticComponent<Pick<React.SVGProps<SVGSVGElement>, any>>
 
-export type ControlledInputProps = {
+export type UnCtrl = {
+  onChange: (e: any) => void
+  value: any
+}
+
+export type InputProps = {
   isRequired?: boolean
   isDisabled?: boolean
   placeholder?: string
   label?: string
-} & ClassName &
-  FormItem &
-  Controlled
+} & ClassName
+
+export type CtrlInputProps = InputProps & FormItem
 
 export type IconInputProps = {
   position?: Position
@@ -24,12 +28,3 @@ export type IconInputProps = {
 } & ClassName
 
 export type CtrlIconInputProps = IconInputProps & FormItem
-
-export type SimpleInputProps = ControlledInputProps & {
-  field: ControllerRenderProps<FieldValues, string>
-}
-
-// export type CtrlIconInputProps = {
-//   isRequired?: boolean
-// } & FormItem &
-//   Controlled

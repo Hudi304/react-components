@@ -1,7 +1,8 @@
 .base-input {
-  @apply py-1 pl-2 w-full h-[60px]
+  @apply py-1 pl-2 w-full h-full
     appearance-none   
-    
+    bg-transparent
+
     text-sm
     font-semibold
 
@@ -11,7 +12,9 @@
 
     placeholder:font-normal 
         
-    focus:border-blue-500
+    focus:outline-2 
+    focus:outline-black
+    focus:outline-offset-0
 
     duration-200 
     ease-in-out 

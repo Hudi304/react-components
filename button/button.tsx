@@ -3,10 +3,9 @@ import { Children, ClassName } from '@sub/types'
 
 import './button.scss'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'icon-btn'
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'icon-btn' | 'tab'
 
 export type ButtonType = 'small' | 'default' | 'large'
-
 type CustomButtonProps = {
   variant?: ButtonVariant
   type?: ButtonType

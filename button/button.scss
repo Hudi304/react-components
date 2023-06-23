@@ -58,4 +58,8 @@
       // @apply text-gray-5 bg-gray-0 border-none;
     }
   }
+
+  &.tab {
+    @apply bg-transparent border-none;
+  }
 }

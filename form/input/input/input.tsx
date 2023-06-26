@@ -16,7 +16,7 @@ export const Input: FC<Props> = (props): JSX.Element => {
 
   return (
     <div className={`flex flex-col w-full ${height}`}>
-      {props.label && <Label {...props} />}
+      {/* {props.label && <Label id={props.label} {...props} />} */}
       {/* prettier-ignore */}
       <input
         {...props}

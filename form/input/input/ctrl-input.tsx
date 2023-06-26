@@ -20,7 +20,7 @@ const Input: FC<Props> = (props): JSX.Element => {
 
   return (
     <div className='flex flex-col h-[62px]'>
-      <Label {...props} />
+      {/* <Label {...props} /> */}
       <input
         className={`base-input ${className} ${disabled} ${error}`}
         title={field.value}

@@ -1,5 +1,4 @@
-
-.loader-container{
+.loader-container {
   @apply w-full max-w-full grid grid-cols-1 grid-rows-1;
 
   .loader-overlay {
@@ -12,14 +11,10 @@
       row-end-1 
       col-start-1 
       col-end-1 
-      z-50
-      bg-opacity-40 ;
+      bg-opacity-40;
   }
 
   .loader-children {
     @apply w-full max-w-full;
   }
 }
-
-
-  

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Loader } from './loader/loader'
+
 import './loader-overlay.scss'
 
 type LoaderOverlayProps = {
@@ -29,19 +30,10 @@ export const LoaderOverlay = ({
 
   return (
     <div className={`loader-container ${className} `}>
-      {(displayChildren || !loading) && (
-        <div className='loader-children c1-r1'>{children}</div>
-      )}
+      {(displayChildren || !loading) && <div className='loader-children c1-r1'>{children}</div>}
       {loading && (
-        <div
-          className={`loader-overlay c1-r1`}
-          style={{ backgroundColor: `rgba(255, 255, 255, ${overlayOpacity})` }}
-        >
-          <Loader
-            loaderClass={loaderClass}
-            size={loaderSize}
-            className='w-full'
-          />
+        <div className={`loader-overlay c1-r1 bg-transparent`} style={{ opacity: overlayOpacity }}>
+          <Loader loaderClass={loaderClass} size={loaderSize} className='w-full' />
         </div>
       )}
     </div>

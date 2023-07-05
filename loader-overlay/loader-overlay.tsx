@@ -29,10 +29,10 @@ export const LoaderOverlay = ({
   }, [isLoading])
 
   return (
-    <div className={`loader-container ${className} `}>
+    <div className={`loader-container g-c1-r1 ${className} `}>
       {(displayChildren || !loading) && <div className='loader-children c1-r1'>{children}</div>}
       {loading && (
-        <div className={`loader-overlay c1-r1 bg-transparent`} style={{ opacity: overlayOpacity }}>
+        <div className={`loader-overlay c1-r1 bg-opacity-30 bg-[#F5F5F5]`} style={{ opacity: overlayOpacity }}>
           <Loader loaderClass={loaderClass} size={loaderSize} className='w-full' />
         </div>
       )}

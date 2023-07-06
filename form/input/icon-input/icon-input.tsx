@@ -4,6 +4,8 @@ import { Icon } from '@cmp/icon/icon'
 
 import './icon-input.scss'
 import { IconInputProps } from '../types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPerson } from '@fortawesome/free-solid-svg-icons'
 
 /** ### Styled UNCONTROLLED IconInput */
 export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
@@ -37,7 +39,8 @@ export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
 
   return (
     <div className={`icon-input-container ${focus} ${className}`} onClick={onInputClick}>
-      {position == Position.LEFT && <Icon className='icon' icon={icon} size={6} />}
+      {/* {position == Position.LEFT && <Icon className='icon' icon={icon} size={6} />} */}
+      {position == Position.LEFT && <FontAwesomeIcon className='icon ml-auto text-2xl' icon={icon} />}
 
       {label ? (
         <div className='input-container '>
@@ -62,7 +65,8 @@ export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
         />
       )}
 
-      {position == Position.RIGHT && <Icon className='icon ml-auto' icon={icon} size={6} />}
+      {position == Position.RIGHT && <FontAwesomeIcon className='icon ml-auto text-2xl' icon={icon} />}
+      {/* // <Icon className='icon ml-auto' icon={icon} size={6} />} */}
     </div>
   )
 }

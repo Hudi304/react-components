@@ -20,7 +20,7 @@ export type CtrlInputProps = InputProps & FormItem
 
 export type IconInputProps = {
   position?: Position
-  icon?: IconCmp
+  icon?: any
   value?: string
   name?: string
   label?: string

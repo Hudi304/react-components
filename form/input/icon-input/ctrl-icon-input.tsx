@@ -3,6 +3,7 @@ import { CtrlIconInputProps } from '../types'
 import { Controller, useFormContext } from 'react-hook-form'
 import { Icon } from '@cmp/icon/icon'
 import { Controlled, Position } from '@sub/form/types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type IconInputProps = CtrlIconInputProps & Controlled
 
@@ -36,7 +37,8 @@ const IconInput: FC<IconInputProps> = (props) => {
 
   return (
     <div className={`icon-input-container ${focus} ${className}`} onClick={onInputClick}>
-      {position == Position.LEFT && <Icon className='icon' icon={icon} size={6} />}
+      {/* {position == Position.LEFT && <Icon className='icon' icon={icon} size={6} />} */}
+      {position == Position.LEFT && <FontAwesomeIcon className='icon ml-auto text-2xl' icon={icon} />}
 
       {label ? (
         <div className='input-container '>
@@ -55,15 +57,16 @@ const IconInput: FC<IconInputProps> = (props) => {
         <input
           {...field}
           id={componentId}
-          // ref={ref} 
+          // ref={ref}
           // value={value}
           className='unlabeled-input'
           // onFocus={onInputFocus}
           // onBlur={onInputBlur}
         />
       )}
+      {position == Position.RIGHT && <FontAwesomeIcon className='icon ml-auto text-2xl' icon={icon} />}
 
-      {position == Position.RIGHT && <Icon className='icon ml-auto' icon={icon} size={6} />}
+      {/* {position == Position.RIGHT && <Icon className='icon ml-auto' icon={icon} size={6} />} */}
     </div>
   )
 }

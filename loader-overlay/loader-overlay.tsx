@@ -6,7 +6,6 @@ import './loader-overlay.scss'
 type LoaderOverlayProps = {
   isLoading: boolean
   children: any
-  overlayOpacity?: number
   displayChildren?: boolean
   loaderSize?: number
   className?: string
@@ -16,7 +15,6 @@ type LoaderOverlayProps = {
 export const LoaderOverlay = ({
   children,
   isLoading,
-  overlayOpacity,
   displayChildren = true,
   loaderSize = 20,
   className = '',
@@ -32,7 +30,7 @@ export const LoaderOverlay = ({
     <div className={`loader-container g-c1-r1 ${className} `}>
       {(displayChildren || !loading) && <div className='loader-children c1-r1'>{children}</div>}
       {loading && (
-        <div className={`loader-overlay c1-r1 bg-[#F5F5F5]`} style={{ opacity: overlayOpacity }}>
+        <div className={`loader-overlay c1-r1 z-10`}>
           <Loader loaderClass={loaderClass} size={loaderSize} className='w-full' />
         </div>
       )}

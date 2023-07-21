@@ -1,11 +1,10 @@
 import { FC, useRef, useState } from 'react'
 import { Position } from '../../types'
-import { Icon } from '@cmp/icon/icon'
 
-import './icon-input.scss'
 import { IconInputProps } from '../types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPerson } from '@fortawesome/free-solid-svg-icons'
+
+import './icon-input.scss'
 
 /** ### Styled UNCONTROLLED IconInput */
 export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {

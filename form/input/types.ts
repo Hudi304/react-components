@@ -1,6 +1,7 @@
 import { Position } from './../types'
 import { ClassName } from '@sub/types'
 import { FormItem } from '../types'
+import { ReactNode } from 'react'
 
 type IconCmp = React.ForwardRefExoticComponent<Pick<React.SVGProps<SVGSVGElement>, any>>
 

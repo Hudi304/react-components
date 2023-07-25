@@ -30,7 +30,10 @@ export const Button = React.memo(
       <button
         className={`button ${className} ${type} ${variant} ${disabled ? 'disabled' : ''}`}
         style={style}
-        onClick={onClick}
+        onClick={(e) => {
+          if (disabled) return
+          onClick(e)
+        }}
         {...rest}
       >
         {children}

@@ -39,7 +39,7 @@ export const IconInput: FC<IconInputProps> = (props: IconInputProps) => {
   return (
     <div className={`icon-input-container ${focus} ${className}`} onClick={onInputClick}>
       {/* {position == Position.LEFT && <Icon className='icon' icon={icon} size={6} />} */}
-      {position == Position.LEFT && <FontAwesomeIcon className='icon ml-auto text-2xl' icon={icon} />}
+      {position == Position.LEFT && <FontAwesomeIcon className='icon ml-auto text-2xl w-[30px]' icon={icon} />}
 
       {label ? (
         <div className='input-container '>

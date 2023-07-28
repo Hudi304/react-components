@@ -13,7 +13,7 @@ export const DropdownTrigger: FC<DropdownTriggerProps> = ({ children }) => {
   return (
     <Menu.Button
       as='div'
-      className='border-2 border-black rounded-full w-full px-5 h-10 flex justify-between items-center'
+      className='border-2 border-black rounded-full w-full px-5 h-10 flex justify-between items-center overflow-hidden text-ellipsis'
     >
       <div>{children}</div>
 

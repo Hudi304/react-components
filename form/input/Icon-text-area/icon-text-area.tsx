@@ -20,13 +20,7 @@ export const IconTextArea: FC<IconTextAreaProps> = ({ className = '', icon, onCh
   const [isFocused, setIsFocused] = useState(false)
 
   function onInputClick() {
-    if (ref == null) {
-      return
-    }
-
-    if (ref.current == null) {
-      return
-    }
+    if (ref == null || ref.current == null) return
 
     ref.current.focus()
   }

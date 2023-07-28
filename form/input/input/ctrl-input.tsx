@@ -2,10 +2,7 @@ import { FC } from 'react'
 import { useFormContext, Controller } from 'react-hook-form'
 import { CtrlInputProps } from '../types'
 import { ErrorMessage } from '../error-message'
-import { Label } from '../label'
 import { Controlled } from '@sub/form/types'
-
-// import './input.scss'
 
 type Props = CtrlInputProps & Controlled
 

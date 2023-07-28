@@ -4,6 +4,7 @@ import { FormProvider, UseFormReturn } from 'react-hook-form'
 import { ClassName } from '@sub/types'
 import { CtrlInput } from './input/input/ctrl-input'
 import { CtrlIconInput } from './input/icon-input/ctrl-icon-input'
+import { CtrlIconTextArea } from './input/Icon-text-area/ctrl-icon-text-area'
 
 type FormProps = {
   children: any
@@ -22,6 +23,8 @@ const FormCmp: FC<FormProps> = ({ children, methods, className = '', onSubmit })
 export const Form = Object.assign(FormCmp, {
   Input: CtrlInput,
   IconInput: CtrlIconInput,
+  IconTextArea: CtrlIconTextArea,
+
 
   // Select: ControlledSelect,
   // Checkbox: ControlledCheckbox,
